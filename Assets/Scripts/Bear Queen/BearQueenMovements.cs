@@ -17,6 +17,11 @@ public class BearQueenMovements : MonoBehaviour
     bool upDown;
     bool downDown;
 
+    //This will allow to access the correct animator
+    public Animator animatorBearQueen;
+    //This will be used to store the character current speed
+    Vector2 movement = new Vector2 (0, 0);
+
 
 
     // OnEnable is called whenever the object this script is attached to is created or enabled in a scene.
@@ -45,7 +50,22 @@ public class BearQueenMovements : MonoBehaviour
         bearRigidbody = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        //Every frame, adapts the animator parameters so that they match the character speed and direction
+        movement = bearRigidbody.velocity;
+        animatorBearQueen.SetFloat("Horizontal", movement.x);
+        animatorBearQueen.SetFloat("Vertical", movement.y);
+        if(movement.x != 0 | movement.y != 0){
+            animatorBearQueen.SetFloat("Speed", 1);
+        }
+        else
+        {
+            animatorBearQueen.SetFloat("Speed", 0);
+        }
+        
 
+    }
 
     //This method is called through the EventManager and will make the character move right whenever the right key is pressed.
     void StartMovingRight()

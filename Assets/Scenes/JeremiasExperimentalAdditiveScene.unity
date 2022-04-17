@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 1012990850}
   - component: {fileID: 1012990849}
   - component: {fileID: 1012990852}
+  - component: {fileID: 1012990853}
   m_Layer: 0
   m_Name: BearQueen
   m_TagString: Untagged
@@ -202,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  animatorBearQueen: {fileID: 1012990853}
 --- !u!212 &1012990850
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -288,6 +290,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1012990853
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012990848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec36bf0d035776143bafdf87a99e19ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1550811212
 GameObject:
   m_ObjectHideFlags: 0

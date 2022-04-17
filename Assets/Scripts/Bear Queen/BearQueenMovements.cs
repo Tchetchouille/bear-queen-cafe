@@ -24,11 +24,10 @@ public class BearQueenMovements : MonoBehaviour
 
 
 
+
     // OnEnable is called whenever the object this script is attached to is created or enabled in a scene.
     void OnEnable()
     {
-
-
         //Adding the methods that will allow movement to the EventManager script
         EventManager.OnRightDown += StartMovingRight;
         EventManager.OnRightUp += StopMovingRight;
@@ -39,7 +38,6 @@ public class BearQueenMovements : MonoBehaviour
         EventManager.OnUpUp += StopMovingUp;
         EventManager.OnDownDown += StartMovingDown;
         EventManager.OnDownUp += StopMovingDown;
-
     }
 
 
@@ -54,17 +52,20 @@ public class BearQueenMovements : MonoBehaviour
     {
         //Every frame, adapts the animator parameters so that they match the character speed and direction
         movement = bearRigidbody.velocity;
-        animatorBearQueen.SetFloat("Horizontal", movement.x);
-        animatorBearQueen.SetFloat("Vertical", movement.y);
+
+        //If there is any movement, the speed is set to one and the horizontal and vertical movement are passed to the animator.
         if(movement.x != 0 | movement.y != 0){
             animatorBearQueen.SetFloat("Speed", 1);
+            animatorBearQueen.SetFloat("Horizontal", movement.x);
+            animatorBearQueen.SetFloat("Vertical", movement.y);
         }
+        //Else, the speed is simpls set to 0.
+        //The "Horizontal" and "Vertical" values aren't changed, as their value will allow the animator to display the correct iddle animation.
         else
         {
             animatorBearQueen.SetFloat("Speed", 0);
         }
         
-
     }
 
     //This method is called through the EventManager and will make the character move right whenever the right key is pressed.
@@ -76,7 +77,6 @@ public class BearQueenMovements : MonoBehaviour
         {
             bearRigidbody.velocity += new Vector2(moveSpeed, 0);
         }
-        
         //We then change the value of the rightDown variable to show it is held down.
         rightDown = true;
     }
@@ -90,7 +90,6 @@ public class BearQueenMovements : MonoBehaviour
         {
             bearRigidbody.velocity += new Vector2(-moveSpeed, 0);
         }
-
         rightDown = false;
     }
 
@@ -105,7 +104,6 @@ public class BearQueenMovements : MonoBehaviour
         }
         leftDown = true;
     }
-
     void StopMovingLeft()
     {
         //For some unknown reason, the method can sometimes be triggered several times in on key release.
@@ -116,7 +114,6 @@ public class BearQueenMovements : MonoBehaviour
         }
         leftDown = false;
     }
-
     void StartMovingUp()
     {
         //For some unknown reason, the method can sometimes be triggered several times in on key press.
@@ -127,7 +124,6 @@ public class BearQueenMovements : MonoBehaviour
         }
         upDown = true;
     }
-
     void StopMovingUp()
     {
         //For some unknown reason, the method can sometimes be triggered several times in on key release.
@@ -158,5 +154,4 @@ public class BearQueenMovements : MonoBehaviour
         }
         downDown = false;
     }
-
 }

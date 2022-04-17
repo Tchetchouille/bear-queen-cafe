@@ -38,6 +38,9 @@ public class BearQueenMovements : MonoBehaviour
         EventManager.OnUpUp += StopMovingUp;
         EventManager.OnDownDown += StartMovingDown;
         EventManager.OnDownUp += StopMovingDown;
+
+        //The same goes for the roll
+        EventManager.OnDashDown += DoADash;
     }
 
 
@@ -54,7 +57,8 @@ public class BearQueenMovements : MonoBehaviour
         movement = bearRigidbody.velocity;
 
         //If there is any movement, the speed is set to one and the horizontal and vertical movement are passed to the animator.
-        if(movement.x != 0 | movement.y != 0){
+        if(movement.x != 0 | movement.y != 0)
+        {
             animatorBearQueen.SetFloat("Speed", 1);
             animatorBearQueen.SetFloat("Horizontal", movement.x);
             animatorBearQueen.SetFloat("Vertical", movement.y);
@@ -153,5 +157,11 @@ public class BearQueenMovements : MonoBehaviour
             bearRigidbody.velocity += new Vector2(0, moveSpeed);
         }
         downDown = false;
+    }
+
+    //WORK IN PROGRESS
+    void DoADash()
+    {
+        Debug.Log("Rooooooollll Baby !");
     }
 }

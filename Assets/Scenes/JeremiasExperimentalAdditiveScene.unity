@@ -156,6 +156,7 @@ MonoBehaviour:
   leftKey: a
   upKey: w
   downKey: s
+  dashKey: left shift
 --- !u!4 &196467275
 Transform:
   m_ObjectHideFlags: 0

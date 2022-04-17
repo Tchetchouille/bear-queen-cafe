@@ -25,6 +25,9 @@ public class EventManager : MonoBehaviour
     public delegate void DownUp();
     public static event DownUp OnDownUp;
 
+    //Same logic for the roll action key
+    public delegate void DashDown();
+    public static event DashDown OnDashDown;
 
     //This variable will allow to assign a key to the "move right" action
     public string rightKey;
@@ -32,6 +35,8 @@ public class EventManager : MonoBehaviour
     public string leftKey;
     public string upKey;
     public string downKey;
+    //This variable will allow to assign a key to the "roll" action
+    public string dashKey;
 
     // Update is called once per frame
     void OnGUI()
@@ -72,6 +77,10 @@ public class EventManager : MonoBehaviour
             OnDownUp();
         }
 
+        if (Input.GetKeyDown(dashKey)) 
+        {
+            OnDashDown();
+        }
 
 
     }

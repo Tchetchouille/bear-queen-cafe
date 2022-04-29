@@ -204,6 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  dashDistance: 5
+  dashSpeed: 5
   animatorBearQueen: {fileID: 1012990853}
 --- !u!212 &1012990850
 SpriteRenderer:

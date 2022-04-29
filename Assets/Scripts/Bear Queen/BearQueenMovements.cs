@@ -6,6 +6,9 @@ public class BearQueenMovements : MonoBehaviour
 {
     //Allows to access the moveSpeed from the Editor.
     public float moveSpeed;
+    //Allows to access the dash distance and speed from the editor,.
+    public float dashDistance;
+    public float dashSpeed;
 
     //Will hold the character Rigidbody2D
     private Rigidbody2D bearRigidbody;
@@ -80,6 +83,8 @@ public class BearQueenMovements : MonoBehaviour
         if (rightDown == false) 
         {
             bearRigidbody.velocity += new Vector2(moveSpeed, 0);
+            //WORK IN PROGRESS  
+            animatorBearQueen.SetInteger("Direction", 2);
         }
         //We then change the value of the rightDown variable to show it is held down.
         rightDown = true;
@@ -105,6 +110,8 @@ public class BearQueenMovements : MonoBehaviour
         if (leftDown == false)
         {
             bearRigidbody.velocity += new Vector2(-moveSpeed, 0);
+            //WORK IN PROGRESS  
+            animatorBearQueen.SetInteger("Direction", 1);
         }
         leftDown = true;
     }
@@ -125,6 +132,8 @@ public class BearQueenMovements : MonoBehaviour
         if (upDown == false)
         {
             bearRigidbody.velocity += new Vector2(0, moveSpeed);
+            //WORK IN PROGRESS  
+            animatorBearQueen.SetInteger("Direction", 3);
         }
         upDown = true;
     }
@@ -145,6 +154,8 @@ public class BearQueenMovements : MonoBehaviour
         if (downDown == false)
         {
             bearRigidbody.velocity += new Vector2(0, -moveSpeed);
+            //WORK IN PROGRESS  
+            animatorBearQueen.SetInteger("Direction", 0);
         }
         downDown = true;
     }
@@ -163,5 +174,6 @@ public class BearQueenMovements : MonoBehaviour
     void DoADash()
     {
         Debug.Log("Rooooooollll Baby !");
+        animatorBearQueen.SetTrigger("Dash");
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Client
   - Table
+  - WaitingZone
   layers:
   - Default
   - TransparentFX

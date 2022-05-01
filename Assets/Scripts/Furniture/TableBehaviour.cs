@@ -26,7 +26,8 @@ public class TableBehaviour : MonoBehaviour
     private void CheckForClient()
     {
         //Draw a Raycast from the table position to the left of it.
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, distance: 1);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), Vector2.left,
+            distance: 2);
         //If the raycast touch a GameObject with the Tag "Client", then =>
         if (hit.collider != null && hit.collider.tag.Equals("Client"))
         {
